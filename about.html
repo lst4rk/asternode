@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - ASTERNODE</title>
+    <style>
+        @font-face {
+            font-family: 'UraniaLight';
+            src: url('https://www.fontspring.com/fonts/hoftype/urania/urania-light') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'UraniaLight', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #FCF4ED;
+            color: #321E0F;
+            min-height: 100vh;
+            cursor: default;
+            overflow-x: hidden;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .nav {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            z-index: 3;
+        }
+
+        .nav a {
+            color: #463223;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #DA6E2A;
+        }
+
+        .logo {
+            font-size: 2rem;
+            letter-spacing: 0.2em;
+            background: linear-gradient(45deg, #DA6E2A, #E39E5A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 4rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: #DA6E2A;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #463223;
+        }
+
+        .values-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .value-item {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .value-item h3 {
+            color: #DA6E2A;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .visual {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                margin: 3rem 0;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            .values-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (hover: hover) {
+            .container {
+                cursor: none;
+            }
+
+            .cursor {
+                width: 20px;
+                height: 20px;
+                border: 1px solid #DA6E2A;
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 3;
+                transition: transform 0.1s ease;
+                transform: translate(-50%, -50%);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="contact.html" id="contactBtn">Contact</a>
+    </nav>
+    <div class="logo">ASTERNODE</div>
+    <div class="content">
+        <div class="section">
+            <h2>Our Vision</h2>
+            <p>ASTERNODE represents the convergence of infinite possibility and human connection. Our name draws inspiration from the vastness of space ("Aster") and the power of interconnected systems ("Node"), reflecting our commitment to exploring the boundless potential of technology while maintaining a deep focus on human relationships.</p>
+        </div>
+
+        <div class="section">
+            <h2>What We Do</h2>
+            <p>As a technology company, we specialize in developing innovative solutions that bridge the gap between complex systems and human needs. Our work focuses on creating meaningful connections through technology, whether it's through software development, network solutions, or community-driven platforms.</p>
+            <p>We believe in the power of technology to enhance human connection rather than replace it, and we strive to create solutions that align with this philosophy.</p>
+        </div>
+
+        <div class="section">
+            <h2>Our Values</h2>
+            <div class="values-list">
+                <div class="value-item">
+                    <h3>Innovation</h3>
+                    <p>Pushing boundaries and exploring new possibilities in technology and human connection.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Community</h3>
+                    <p>Building and nurturing meaningful relationships and networks that help people thrive.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Human-Centered</h3>
+                    <p>Ensuring technology serves human needs and enhances rather than replaces human connection.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visual" id="nodeField"></div>
+</div>
+
+<div class="cursor" id="cursor"></div>
+
+<script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    if (matchMedia('(hover: hover)').matches) {
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            });
+            link.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+    } else {
+        cursor.style.display = 'none';
+    }
+
+    // Node field animation
+    const nodeField = document.getElementById('nodeField');
+    const nodes = [];
+    const nodeCount = 100;
+
+    class Node {
+        constructor() {
+            this.element = document.createElement('div');
+            this.element.className = 'node';
+            this.reset();
+            nodeField.appendChild(this.element);
+        }
+
+        reset() {
+            this.x = Math.random() * window.innerWidth;
+            this.y = Math.random() * window.innerHeight;
+            this.size = Math.random() * 3 + 1;
+            this.speed = Math.random() * 0.5 + 0.2;
+            this.angle = Math.random() * Math.PI * 2;
+            this.element.style.width = this.size + 'px';
+            this.element.style.height = this.size + 'px';
+        }
+
+        update() {
+            this.angle += 0.002;
+            this.x += Math.cos(this.angle) * this.speed;
+            this.y += Math.sin(this.angle) * this.speed;
+
+            if (this.x < 0 || this.x > window.innerWidth ||
+                this.y < 0 || this.y > window.innerHeight) {
+                this.reset();
+            }
+
+            this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
+        }
+    }
+
+    for (let i = 0; i < nodeCount; i++) {
+        nodes.push(new Node());
+    }
+
+    function animate() {
+        nodes.forEach(node => node.update());
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        nodes.forEach(node => node.reset());
+    });
+</script>
+</body>
+</html>
