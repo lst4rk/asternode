@@ -47,7 +47,7 @@
             color: #463223;
             text-decoration: none;
             margin-left: 2rem;
-            font-size: 1rem;
+            font-size: 0.8rem;
             letter-spacing: 0.1em;
             transition: color 0.3s ease;
         }
@@ -88,7 +88,7 @@
         h2 {
             color: #DA6E2A;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 0.9rem;
             letter-spacing: 0.1em;
         }
 
@@ -115,7 +115,7 @@
         .value-item h3 {
             color: #DA6E2A;
             margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
         }
 
         .visual {
@@ -160,7 +160,7 @@
 
             .nav a {
                 margin-left: 1rem;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
 
             .logo {
@@ -206,17 +206,17 @@
     <div class="content">
         <div class="section">
             <h2>Our Vision</h2>
-            <p>Asternode represents the convergence of infinite possibility and human connection. Our name draws inspiration from the vastness of space ("Aster") and the power of interconnected systems ("Node"), reflecting our commitment to exploring the boundless potential of technology while maintaining a deep focus on human relationships.</p>
+            <p>Asternode represents the convergence of infinite possibility and human connection.</p>
+            <p>Our name draws inspiration from the vastness of space ("Aster") and the power of interconnected systems ("Node"), reflecting our commitment to exploring the boundless potential of technology while understanding that human relationships are what make it possible.</p>
         </div>
 
         <div class="section">
             <h2>What We Do</h2>
-            <p>As a technology company, we specialize in developing innovative solutions that bridge the gap between complex systems and human needs. Our work focuses on creating meaningful connections through technology, whether it's through software development, network solutions, or community-driven platforms.</p>
+            <p>As a technology company, we specialize in developing innovative solutions that bridge the gap between complex systems and human needs.</p>
             <p>We believe in the power of technology to enhance human connection rather than replace it, and we strive to create solutions that align with this philosophy.</p>
         </div>
 
         <div class="section">
-            <h2>Our Values</h2>
             <div class="values-list">
                 <div class="value-item">
                     <h3>Innovation</h3>
@@ -224,11 +224,7 @@
                 </div>
                 <div class="value-item">
                     <h3>Community</h3>
-                    <p>Building and nurturing meaningful relationships and networks that help people thrive.</p>
-                </div>
-                <div class="value-item">
-                    <h3>Human-Centered</h3>
-                    <p>Ensuring technology serves human needs and enhances rather than replaces human connection.</p>
+                    <p>Building and nurturing meaningful relationships and networks that help humans thrive.</p>
                 </div>
             </div>
         </div>
@@ -239,26 +235,6 @@
 <div class="cursor" id="cursor"></div>
 
 <script>
-    // Custom cursor
-    const cursor = document.getElementById('cursor');
-    if (matchMedia('(hover: hover)').matches) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-            });
-            link.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-            });
-        });
-    } else {
-        cursor.style.display = 'none';
-    }
-
     // Node field animation
     const nodeField = document.getElementById('nodeField');
     const nodes = [];

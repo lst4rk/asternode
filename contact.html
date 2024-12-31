@@ -47,7 +47,7 @@
             color: #463223;
             text-decoration: none;
             margin-left: 2rem;
-            font-size: 1rem;
+            font-size: 0.8rem;
             letter-spacing: 0.1em;
             transition: color 0.3s ease;
         }
@@ -163,7 +163,7 @@
 
             .nav a {
                 margin-left: 1rem;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
 
             .logo {
@@ -219,26 +219,6 @@
 <div class="cursor" id="cursor"></div>
 
 <script>
-    // Custom cursor
-    const cursor = document.getElementById('cursor');
-    if (matchMedia('(hover: hover)').matches) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        document.querySelectorAll('a, button, input, textarea').forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-            });
-            element.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-            });
-        });
-    } else {
-        cursor.style.display = 'none';
-    }
-
     // Node field animation
     const nodeField = document.getElementById('nodeField');
     const nodes = [];
